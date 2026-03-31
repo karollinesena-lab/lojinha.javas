@@ -35,6 +35,20 @@ O sistema segue uma estrutura simples baseada no modelo cliente-servidor monolí
 
 Cada classe possui uma função específica, facilitando a organização e entendimento do código.
 
+## Modelagem de Dados (DER)
+
+A estrutura do banco de dados foi planejada para garantir que as informações da compra sejam salvas com segurança. As principais definições foram:
+
+- Uso da tabela ItemPedido: Criada para permitir que um único pedido tenha vários produtos. Ela também salva o preço do item no momento da compra, para 
+que o valor total não mude se o preço do catálogo subir depois.
+
+- Relacionamento Pedido e Pagamento: Foi definida uma ligação de 1 para 1, garantindo que cada pedido tenha seu próprio registro de pagamento para facilitar 
+o controle financeiro.
+
+- Controle de estoque: A tabela de produtos possui um campo de quantidade para o sistema verificar se o item está disponível antes de fechar a venda.
+
+- Uso de Chaves (PK/FK): Garante que todos os dados estejam conectados corretamente, permitindo saber exatamente qual cliente fez cada pedido.
+
 ## Padrão de Projeto Utilizado
 
 Foi utilizado o padrão de projeto Singleton na classe PagamentoService.
